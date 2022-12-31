@@ -10,6 +10,7 @@ const Image = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transform: scale(1.1);
 `;
 const Info = styled.div`
     position: absolute;
@@ -35,7 +36,6 @@ const Button = styled.button`
     font-weight: 600;
 `;
 const CategoryItem = ({ item }) => {
-  console.log(item);
   return (
     <Container>
       <Image src={item.img} />
