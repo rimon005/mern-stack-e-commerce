@@ -5,6 +5,8 @@ import ProductList from "./Pages/ProductList";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Success from "./Pages/Success";
+import { useSelector } from "react-redux";
 
 
 const router =createBrowserRouter([
@@ -31,10 +33,15 @@ const router =createBrowserRouter([
   {
     path:"/cart",
     element:<Cart />
+  },
+  {
+    path:"/success",
+    element: <Success />
   }
 ])
 
 function App() {
+  const user = useSelector(state => state.user.currentUser)
   return (
     <div className="App">
           <RouterProvider router={router}></RouterProvider>
