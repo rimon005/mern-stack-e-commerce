@@ -1,6 +1,7 @@
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 const Container = styled.div`
@@ -25,7 +26,6 @@ const Language = styled.span`
   font-size: 14px;
   cursor: pointer;
   ${mobile({ display: "none" })}
-
 `;
 
 const SearchContainer = styled.div`
@@ -61,6 +61,7 @@ const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
+  color: black;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
@@ -71,20 +72,28 @@ const Navbar = () => {
         <Left>
           <Language>EN</Language>
           <SearchContainer>
-            <Input placeholder="search"/>
+            <Input placeholder='search' />
             <Search style={{ color: "gray", fontSize: "16px" }} />
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>RIMON</Logo>
+          <Logo>
+            <Link to='/'>RIMON</Link>
+          </Logo>
         </Center>
         <Right>
-          <MenuItem>Register</MenuItem>
-          <MenuItem>Sign In</MenuItem>
+          <Link to='/register'>
+            <MenuItem>Register</MenuItem>
+          </Link>
+          <Link to='/login'>
+            <MenuItem>Sign In</MenuItem>
+          </Link>
           <MenuItem>
-            <Badge badgeContent={4} color='secondary'>
-              <ShoppingCartOutlined color='action' />
-            </Badge>
+            <Link to='/cart'>
+              <Badge badgeContent={4} color='secondary' overlap='rectangular'>
+                <ShoppingCartOutlined color='action' />
+              </Badge>
+            </Link>
           </MenuItem>
         </Right>
       </Wrapper>
